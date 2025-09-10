@@ -13,3 +13,4 @@ forceGold = type=http-response, pattern^https:\/\/api\.revenuecat\com\/v1\/subsc
 
 hostname = api.revenuecat.com, raw.githubusercontent.com
 
+
