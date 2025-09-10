@@ -1,73 +1,59 @@
-/**
- * locketql_merged_fixed.js
- * Unlock Locket Gold với ngày động
- * - Giữ đúng product_identifier chuẩn của Locket
- * - Entitlement key = "Gold"
- * - purchase_date luôn = ngày hiện tại
- */
+// Lấy ngày động thay vì fix cứng
+var specificDate = new Date().toISOString();
 
 const mapping = {
-  '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip', 'com.xunn.premium.yearly'],
-  'Locket': ['Gold', 'com.xunn.premium.yearly']
+  '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
+  'Locket': ['Gold'] 
 };
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
 
-let obj = {};
 try {
-  obj = JSON.parse($response.body);
+  var obj = JSON.parse($response.body);
 } catch (e) {
   console.log("Error parsing response body:", e);
-  $done({});
+  $done({}); 
 }
 
 if (!obj.subscriber) obj.subscriber = {};
 if (!obj.subscriber.entitlements) obj.subscriber.entitlements = {};
 if (!obj.subscriber.subscriptions) obj.subscriber.subscriptions = {};
 
-let now = new Date().toISOString();
-
-// Subscription giả lập
 var xunn = {
   is_sandbox: false,
   ownership_type: "PURCHASED",
   billing_issues_detected_at: null,
   period_type: "normal",
-  expires_date: "2099-12-31T23:59:59Z",
+  expires_date: "2099-12-18T01:04:17Z", 
   grace_period_expires_date: null,
   unsubscribe_detected_at: null,
-  original_purchase_date: "2023-01-01T00:00:00Z",
-  purchase_date: now,
+  original_purchase_date: specificDate,  
+  purchase_date: specificDate,          
   store: "app_store"
 };
 
-// Entitlement giả lập
 var xunn_entitlement = {
   grace_period_expires_date: null,
-  purchase_date: now,
-  product_identifier: "com.xunn.premium.yearly", // 👈 chuẩn
-  expires_date: "2099-12-31T23:59:59Z"
+  purchase_date: specificDate, 
+  product_identifier: "com.xunn.premium.yearly",
+  expires_date: "2099-12-18T01:04:17Z" 
 };
 
-// Mapping theo UA
 const match = Object.keys(mapping).find(e => ua.includes(e));
 
 if (match) {
-  let entitlementKey = mapping[match][0] || "Gold";
+  let entitlementKey = mapping[match][0] || "Locket";
   let subscriptionKey = mapping[match][1] || "com.xunn.premium.yearly";
 
   obj.subscriber.subscriptions[subscriptionKey] = xunn;
   obj.subscriber.entitlements[entitlementKey] = xunn_entitlement;
 } else {
-  obj.subscriber.subscriptions["com.xunn.premium.yearly"] = xunn;
-  obj.subscriber.entitlements["Gold"] = xunn_entitlement;
+  obj.subscriber.subscriptions["com.hoangvanbao.premium.yearly"] = xunn;
+  obj.subscriber.entitlements["Locket"] = xunn_entitlement;
 }
 
-// Thông điệp
-obj.Attention = "Bạn đang dùng bản Locket Gold (script merged).";
-
-// Log debug
+obj.Attention = "Chúc mừng bạn khọ khọ khọ! Vui lòng không bán hoặc chia sẻ cho người khác!";
 console.log("User-Agent:", ua);
-console.log("Modified Response:", JSON.stringify(obj, null, 2));
+console.log("Final Modified Response:", JSON.stringify(obj, null, 2));
 
 $done({ body: JSON.stringify(obj) });
