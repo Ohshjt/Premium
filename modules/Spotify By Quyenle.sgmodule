@@ -1,6 +1,6 @@
 #!name=Spotify By Quyenle
 #!desc=Đăng Nhập Lại Sau Khi Add Module!!
-#!url=khọ khọ khọ
+#!url=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/modules/Spotify%20By%20Quyenle.sgmodule
 
 [MITM]
 hostname = %APPEND% spclient.wg.spotify.com
@@ -8,3 +8,4 @@ hostname = %APPEND% spclient.wg.spotify.com
 [Script]
 
 spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Spotify/spotify.js,script-update-interval=0
+
