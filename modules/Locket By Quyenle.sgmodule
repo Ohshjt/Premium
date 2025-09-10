@@ -7,10 +7,10 @@
 # ~ Enhanced for Shadowrocket, Surge, & LanceX
 revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Locket/locketql.js, requires-body=true, max-size=-1, timeout=120
 deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.*\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Locket/deleteHeader.js, timeout=120
-forceGold = type=http-response, pattern^https:\/\/api\.revenuecat\com\/v1\/subscribers\/[^/]+$, script-path=https://raw.githubusercontent.com/NightmarketServer/Locket/refs/heads/main/forceGold.js, requires-body=true, max-size=-1, timeout=120
 
 [MITM]
 
 hostname = api.revenuecat.com, raw.githubusercontent.com
+
 
 
