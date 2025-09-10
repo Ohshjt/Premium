@@ -1,17 +1,16 @@
 /**
- * locketql_merged.js
+ * locketql_merged_fixed.js
  * Unlock Locket Gold với ngày động
- * - Giữ nguyên logic mapping từ locketql.js
- * - purchase_date luôn = ngày hiện tại (hiện đúng trong UI)
- * - expires_date đặt xa (2099-12-31)
+ * - Giữ đúng product_identifier chuẩn của Locket
+ * - Entitlement key = "Gold"
+ * - purchase_date luôn = ngày hiện tại
  */
 
 const mapping = {
-  '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
-  'Locket': ['Gold']
+  '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip', 'com.xunn.premium.yearly'],
+  'Locket': ['Gold', 'com.xunn.premium.yearly']
 };
 
-// User-Agent lấy từ request
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
 
 let obj = {};
@@ -26,7 +25,6 @@ if (!obj.subscriber) obj.subscriber = {};
 if (!obj.subscriber.entitlements) obj.subscriber.entitlements = {};
 if (!obj.subscriber.subscriptions) obj.subscriber.subscriptions = {};
 
-// Ngày hiện tại (ISO 8601)
 let now = new Date().toISOString();
 
 // Subscription giả lập
@@ -47,7 +45,7 @@ var xunn = {
 var xunn_entitlement = {
   grace_period_expires_date: null,
   purchase_date: now,
-  product_identifier: "com.xunn.premium.yearly",
+  product_identifier: "com.xunn.premium.yearly", // 👈 chuẩn
   expires_date: "2099-12-31T23:59:59Z"
 };
 
@@ -55,21 +53,21 @@ var xunn_entitlement = {
 const match = Object.keys(mapping).find(e => ua.includes(e));
 
 if (match) {
-  let entitlementKey = mapping[match][0] || "Locket";
+  let entitlementKey = mapping[match][0] || "Gold";
   let subscriptionKey = mapping[match][1] || "com.xunn.premium.yearly";
 
   obj.subscriber.subscriptions[subscriptionKey] = xunn;
   obj.subscriber.entitlements[entitlementKey] = xunn_entitlement;
 } else {
-  obj.subscriber.subscriptions["com.hoangvanbao.premium.yearly"] = xunn;
-  obj.subscriber.entitlements["Locket"] = xunn_entitlement;
+  obj.subscriber.subscriptions["com.xunn.premium.yearly"] = xunn;
+  obj.subscriber.entitlements["Gold"] = xunn_entitlement;
 }
 
-// Thông điệp cảnh báo
-obj.Attention = "Chúc mừng bạn khọ khọ khọ! Vui lòng không bán hoặc chia sẻ cho người khác!";
+// Thông điệp
+obj.Attention = "Bạn đang dùng bản Locket Gold (script merged).";
 
-// Log để debug
+// Log debug
 console.log("User-Agent:", ua);
-console.log("Final Modified Response:", JSON.stringify(obj, null, 2));
+console.log("Modified Response:", JSON.stringify(obj, null, 2));
 
 $done({ body: JSON.stringify(obj) });
