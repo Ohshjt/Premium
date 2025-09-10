@@ -12,4 +12,3 @@ setHeaderValue(modifiedHeaders, "X-RevenueCat-ETag", "");
 console.log("Modified Headers:", JSON.stringify(modifiedHeaders));
 
 $done({ headers: modifiedHeaders });
-
