@@ -2,9 +2,6 @@
 #!desc=Crack By ie.1w3n
 #!url=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/modules/Locket%20By%20Quyenle.sgmodule
 
-[General]
-user-agent = Locket/1.0.0 (iPhone; iOS 26; Scale/3.00)
-
 [Script]
 
 # ~ Enhanced for Shadowrocket, Surge, & LanceX
@@ -14,4 +11,3 @@ deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.*\/(
 [MITM]
 
 hostname = api.revenuecat.com, raw.githubusercontent.com
-
