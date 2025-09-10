@@ -1,4 +1,4 @@
-﻿var specificDate = "2025-09-10T00:00:00Z"; 
+var specificDate = "2025-09-10T00:00:00Z"; 
 
 const mapping = {
   '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
@@ -47,12 +47,12 @@ if (match) {
   obj.subscriber.subscriptions[subscriptionKey] = xunn;
   obj.subscriber.entitlements[entitlementKey] = xunn_entitlement;
 } else {
-	
+
   obj.subscriber.subscriptions["com.hoangvanbao.premium.yearly"] = xunn;
   obj.subscriber.entitlements["Locket"] = xunn_entitlement;
 }
 
-obj.Attention = "Chúc mừng bạn khọ khọ khọ! Vui lòng không bán hoặc chia sẻ cho người khác!";
+obj.Attention = "Chúc mừng bạn Xunn! Vui lòng không bán hoặc chia sẻ cho người khác!";
 console.log("User-Agent:", ua);
 console.log("Final Modified Response:", JSON.stringify(obj, null, 2));
 
