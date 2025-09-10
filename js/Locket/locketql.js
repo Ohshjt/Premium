@@ -1,5 +1,4 @@
-// Lấy ngày động thay vì fix cứng
-var specificDate = new Date().toISOString();
+var specificDate = "2025-09-10T00:00:00Z"; 
 
 const mapping = {
   '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
@@ -48,6 +47,7 @@ if (match) {
   obj.subscriber.subscriptions[subscriptionKey] = xunn;
   obj.subscriber.entitlements[entitlementKey] = xunn_entitlement;
 } else {
+	
   obj.subscriber.subscriptions["com.hoangvanbao.premium.yearly"] = xunn;
   obj.subscriber.entitlements["Locket"] = xunn_entitlement;
 }
