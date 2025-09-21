@@ -1,4 +1,4 @@
-#!name=All-in-One
+#!name=All-in-One by Quyenle
 #!desc=Spotify Pre, Locket Gold By Quyenle 
 
 [General]
@@ -29,4 +29,5 @@ http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:4
 ################################
 [MITM]
 hostname = api.revenuecat.com, raw.githubusercontent.com, spclient.wg.spotify.com, *spclient.spotify.com
+
 
