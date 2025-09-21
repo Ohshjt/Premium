@@ -1,3 +1,4 @@
+#!name= USVPN
 trojan://OhshjtUS1-vpnjantit.com@usa11.vpnjantit.com:443?security=tls&type=tcp&headerType=none#OhshjtUS1-vpnjantit.com
 trojan://OhshjtUS2-vpnjantit.com@usa10.vpnjantit.com:4443?security=tls&type=tcp&headerType=none#OhshjtUS2-vpnjantit.com
 trojan://OhshjtUS3-vpnjantit.com@usa1.vpnjantit.com:443?security=tls&type=tcp&headerType=none#OhshjtUS3-vpnjantit.com
