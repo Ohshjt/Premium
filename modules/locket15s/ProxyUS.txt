@@ -1,1 +1,11 @@
-
+ss://YWVzLTEyOC1nY206c2hhZG93c29ja3M=@156.146.38.167:443#????[openproxylist.com] ss-US
+vless://e4824193-4f54-453b-d037-88368e85ef0e@185.236.232.223:8880?mode=gun&security=none&encryption=none&type=grpc#????[openproxylist.com] vless-US
+ss://YWVzLTI1Ni1nY206ZmFCQW9ENTRrODdVSkc3@23.157.40.5:2376#????[openproxylist.com] ss-US
+vless://e4824193-4f54-453b-d037-88368e85ef0e@45.82.251.142:8880?mode=gun&security=none&encryption=none&type=grpc#????[openproxylist.com] vless-US
+vmess://eyJ2IjoiMiIsInBzIjoiXHVkODNjXHVkZGZhXHVkODNjXHVkZGY4W29wZW5wcm94eWxpc3QuY29tXSB2bWVzcy1VUyIsImFkZCI6IjE2NS4xNDAuMjE2LjE0MSIsInBvcnQiOiI0NDMiLCJhaWQiOjAsInNjeSI6ImF1dG8iLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsInRscyI6IiIsImlkIjoiZTdkNzJhOGQtMjZmMi00YjU0LWIzNjYtMGM0M2UwYmNiYTdkIiwic25pIjoiIiwic2tpcC1jZXJ0LXZlcmlmeSI6dHJ1ZX0=
+vmess://eyJ2IjoiMiIsInBzIjoiXHVkODNjXHVkZGZhXHVkODNjXHVkZGY4W29wZW5wcm94eWxpc3QuY29tXSB2bWVzcy1VUyIsImFkZCI6IjE2NS4xNDAuMjE2LjE0MSIsInBvcnQiOiI0NDMiLCJhaWQiOjAsInNjeSI6ImF1dG8iLCJuZXQiOiJ0Y3AiLCJ0eXBlIjoibm9uZSIsInRscyI6IiIsImlkIjoiZTdkNzJhOGQtMjZmMi00YjU0LWIzNjYtMGM0M2UwYmNiYTdkIiwic25pIjoiIiwic2tpcC1jZXJ0LXZlcmlmeSI6dHJ1ZX0=
+trojan://OhshjtUS1-vpnjantit.com@usa11.vpnjantit.com:443?security=tls&type=tcp&headerType=none#OhshjtUS1-vpnjantit.com
+trojan://OhshjtUS2-vpnjantit.com@usa10.vpnjantit.com:4443?security=tls&type=tcp&headerType=none#OhshjtUS2-vpnjantit.com
+trojan://OhshjtUS3-vpnjantit.com@usa1.vpnjantit.com:443?security=tls&type=tcp&headerType=none#OhshjtUS3-vpnjantit.com
+trojan://OhshjtUS4-vpnjantit.com@usa2.vpnjantit.com:443?security=tls&type=tcp&headerType=none#OhshjtUS4-vpnjantit.com
+trojan://OhshjtUS5-vpnjantit.com@usa3.vpnjantit.com:4443?security=tls&type=tcp&headerType=none#OhshjtUS5-vpnjantit.com
