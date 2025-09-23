@@ -7,7 +7,5 @@ Auto-US = url-test, US-Nodes, url=http://www.gstatic.com/generate_204, interval=
 
 ---
 [Rule]
-# Một số quy tắc cơ bản để chuyển hướng lưu lượng
-# Nếu bạn đã có quy tắc riêng, bạn có thể bỏ qua phần này
-# SỬ DỤNG LẠI TÊN NHÓM PROXY ĐÃ KHAI BÁO Ở TRÊN (ví dụ: Auto-US)
+# Quy tắc cuối cùng để đảm bảo tất cả lưu lượng truy cập đều đi qua proxy
 FINAL,Auto-US
