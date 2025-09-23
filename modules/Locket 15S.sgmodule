@@ -3,7 +3,7 @@
 
 # --- Proxy subscription (US) ---
 [Proxy]
-US-Nodes = url = https://raw.githubusercontent.com/Epodonios/v2ray-configs/refs/heads/main/All_Configs_Sub.txt
+US-Nodes = url = sub://aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0Vwb2Rvbmlvcy92MnJheS1jb25maWdzL3JlZnMvaGVhZHMvbWFpbi9BbGxfQ29uZmlnc19TdWIudHh0
 
 # --- Proxy Group: tự động chọn server ping thấp nhất ---
 [Proxy Group]
