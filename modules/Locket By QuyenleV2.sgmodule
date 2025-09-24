@@ -1,6 +1,9 @@
 #!name=Locket By Quyenle
 #!desc=Crack By ie.1w3n
 
+[General]
+user-agent = Locket/1.0.0 (iPhone; iOS 26; Scale/3.00)
+
 [Script]
 
 # ~ Enhanced for Shadowrocket, Surge, & LanceX
