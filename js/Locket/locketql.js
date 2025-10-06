@@ -1,59 +1,51 @@
-var specificDate = "2025-09-22T00:00:00Z"; 
+var specificDate = "2025-09-02T00:00:00Z"; 
 
 const mapping = {
   '%E8%BD%A6%E7%A5%A8%E7%A5%A8': ['vip+watch_vip'],
-  'Locket': ['Gold'] 
+  'Locket': ['Gold']
 };
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"];
+var obj = JSON.parse($response.body);
 
-try {
-  var obj = JSON.parse($response.body);
-} catch (e) {
-  console.log("Error parsing response body:", e);
-  $done({}); 
-}
+obj.Attention = "Chúc mừng bạn! Vui lòng không bán hoặc chia sẻ cho người khác!";
 
-if (!obj.subscriber) obj.subscriber = {};
-if (!obj.subscriber.entitlements) obj.subscriber.entitlements = {};
-if (!obj.subscriber.subscriptions) obj.subscriber.subscriptions = {};
-
-var xunn = {
+var locket02 = {
   is_sandbox: false,
   ownership_type: "PURCHASED",
   billing_issues_detected_at: null,
   period_type: "normal",
-  expires_date: "2099-12-18T01:04:17Z", 
+  expires_date: "2099-12-18T01:04:17Z",
   grace_period_expires_date: null,
   unsubscribe_detected_at: null,
-  original_purchase_date: specificDate,  
-  purchase_date: specificDate,          
+  original_purchase_date: "2024-07-28T01:04:18Z",
+  purchase_date: "2024-07-28T01:04:17Z",
   store: "app_store"
 };
 
-var xunn_entitlement = {
+var dohungx = {
   grace_period_expires_date: null,
-  purchase_date: specificDate, 
-  product_identifier: "com.xunn.premium.yearly",
-  expires_date: "2099-12-18T01:04:17Z" 
+  purchase_date: "2024-07-28T01:04:17Z",
+  product_identifier: "com.locket02.premium.yearly",
+  expires_date: "2099-12-18T01:04:17Z"
 };
 
 const match = Object.keys(mapping).find(e => ua.includes(e));
 
 if (match) {
-  let entitlementKey = mapping[match][0] || "Locket";
-  let subscriptionKey = mapping[match][1] || "com.xunn.premium.yearly";
+  let [e, s] = mapping[match];
+  
+  if (s) {
+    dohungx.product_identifier = s;
+    obj.subscriber.subscriptions[s] = locket02;
+  } else {
+    obj.subscriber.subscriptions["com.locket02.premium.yearly"] = locket02;
+  }
 
-  obj.subscriber.subscriptions[subscriptionKey] = xunn;
-  obj.subscriber.entitlements[entitlementKey] = xunn_entitlement;
+  obj.subscriber.entitlements[e] = dohungx;
 } else {
-
-  obj.subscriber.subscriptions["com.hoangvanbao.premium.yearly"] = xunn;
-  obj.subscriber.entitlements["Locket"] = xunn_entitlement;
+  obj.subscriber.subscriptions["com.locket02.premium.yearly"] = locket02;
+  obj.subscriber.entitlements.pro = dohungx;
 }
-
-obj.Attention = "Chúc mừng bạn Xunn! Vui lòng không bán hoặc chia sẻ cho người khác!";
-console.log("User-Agent:", ua);
-console.log("Final Modified Response:", JSON.stringify(obj, null, 2));
 
 $done({ body: JSON.stringify(obj) });
