@@ -1,13 +1,20 @@
-#!name=Spotify By Quyenle
-#!desc=Crack By Quyenle
-
-[Header Rewrite]
-# if-none-match返回304状态码
-http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
-
-[MITM]
-hostname = %APPEND% spclient.wg.spotify.com, *spclient.spotify.com
+#!name=Spotify By Quyenlev2
+#!desc=Crack by ie.1w3n
 
 [Script]
-spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Spotify/spotify-json.js
-spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Spotify/spotify-proto.js,script-update-interval=0
+# Spotify JSON responses (artist / album endpoints)
+spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Spotify/spotify-json.js
+
+
+# Spotify protobuf / bootstrap / customization (binary bodies)
+# Note: max-size=-1 forces Shadowrocket to buffer whole body if needed. Adjust timeout if your connection is slow.
+spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Spotify/spotify-proto.js,script-update-interval=0,timeout=60
+
+
+[MITM]
+# Allow MITM only for the Spotify host required by these scripts
+hostname = spclient.wg.spotify.com
+
+
+# Optional: If you use SNI or alternative host patterns, append here
+# hostname = %APPEND% spclient.wg.spotify.com
