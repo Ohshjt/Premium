@@ -1,8 +1,8 @@
 #!name=OldRoll by Quyenle
 #!desc=Crack by ie.1w3n
 
+[Script]
+OldRoll=type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$,requires-body=1,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/OldRoll/LifetimeVIP.js
+
 [MITM]
 hostname = %APPEND% buy.itunes.apple.com
-
-[Script]
-OldRoll=type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$,requires-body=1,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/OldRollFVIPCrack.js
