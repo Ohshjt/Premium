@@ -1,5 +1,5 @@
 #!name=OldRoll by Quyenle
-#!desc=crack by ie.1w3n
+#!desc=Crack by ie.1w3n
 
 [MITM]
 hostname = %APPEND% buy.itunes.apple.com
