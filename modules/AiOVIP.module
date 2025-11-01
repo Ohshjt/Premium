@@ -17,5 +17,13 @@ spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com
 # --- OldRoll LifetimeVIP ---
 OldRoll=type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$,requires-body=1,script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/OldRoll/LifetimeVIP.js
 
+# --- Picsart ---
+http-response ^https://api\.revenuecat\.com/.+/(receipts$|subscribers/[^/]+$) script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Picsart/crack.js, requires-body=true, timeout=5, tag=Crack
+http-request https://api.picsart.com/gw-v2/shop/subscription/apple/purchases script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/Picsart/PicsArt.js, requires-body=true, timeout=5, tag=PicsArt
+
+# --- VSCO Pro ---
+http-response ^https://api\.revenuecat\.com/.+/(receipts$|subscribers/[^/]+$) script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/VSCO/crack.js, requires-body=true, timeout=5, tag=Crack
+http-request ^https://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/VSCO/VSCO.js, requires-body=true, timeout=5, tag=VSCO
+
 [MITM]
-hostname = %APPEND% buy.itunes.apple.com, spclient.wg.spotify.com, api.revenuecat.com, raw.githubusercontent.com
+hostname = %APPEND% buy.itunes.apple.com, spclient.wg.spotify.com, api.revenuecat.com, raw.githubusercontent.com, api.picsart.com, buy.itunes.apple.com
