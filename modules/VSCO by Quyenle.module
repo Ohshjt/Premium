@@ -1,0 +1,15 @@
+#!name=VSCO by Quyenle
+#!desc=crack by ie.1w3n
+
+[General]
+bypass-system = true
+skip-proxy = *.local, *.crashlytics.com
+tun-excluded-routes = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12
+
+[MITM]
+hostname = api.revenuecat.com, buy.itunes.apple.com
+
+[Script]
+http-response ^https://api\.revenuecat\.com/.+/(receipts$|subscribers/[^/]+$) script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/VSCO/crack.js, requires-body=true, timeout=5, tag=Crack
+http-request ^https://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) script-path=https://raw.githubusercontent.com/Ohshjt/Premium/refs/heads/main/js/VSCO/VSCO.js, requires-body=true, timeout=5, tag=VSCO
+
