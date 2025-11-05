@@ -1,10 +1,5 @@
 /******************************
-Chức năng: Wink Mở khóa tư cách thành viên vĩnh viễn
-Phiên bản ứng dụng: 1.8.90
-Người viết kịch bản: Hausd0rff
-Thời gian cập nhật: 07-11-2024
-Phát hành tập lệnh: https://t.me/shadowrocketunlockproapps
-Tuyên bố sử dụng: Không Buôn Bán Vì Nó Miễn Phí
+WinkCrack
 *******************************
 [rewrite_local]
 # > Wink Mở khóa tư cách thành viên vĩnh viễn
