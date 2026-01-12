@@ -1,20 +1,18 @@
-#!name=Spotify_Xwuan
-#!desc=Crack by ie.1w3n
-
-[Script]
-# Spotify JSON responses (artist / album endpoints)
-spotify-json = type=http-request,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/Xwuan19/Premium/refs/heads/main/js/Spotify/spotify-json.js
-
-
-# Spotify protobuf / bootstrap / customization (binary bodies)
-# Note: max-size=-1 forces Shadowrocket to buffer whole body if needed. Adjust timeout if your connection is slow.
-spotify-proto = type=http-response,pattern=^https:\/\/spclient\.wg\.spotify\.com\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=-1,script-path=https://raw.githubusercontent.com/Xwuan19/Premium/refs/heads/main/js/Spotify/spotify-proto.js,script-update-interval=0,timeout=60
-
+# =========================================
+# 应用名称：Spotify Pre
+# 脚本作者：ie.1w3n
+# 更新时间：2025-08-31
+# =========================================
 
 [MITM]
-# Allow MITM only for the Spotify host required by these scripts
-hostname = spclient.wg.spotify.com
+hostname = spclient.wg.spotify.com, *spclient.spotify.com
 
+[Script]
+# Header 修改
+spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-qx-header.js,requires-body=0,timeout=10
 
-# Optional: If you use SNI or alternative host patterns, append here
-# hostname = %APPEND% spclient.wg.spotify.com
+# Response 解锁
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,requires-body=1,binary-body-mode=1,timeout=10
+
+# JSON 修正
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js,requires-body=0,timeout=10
