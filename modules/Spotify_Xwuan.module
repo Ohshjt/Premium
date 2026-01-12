@@ -1,8 +1,5 @@
-# =========================================
-# 应用名称：Spotify Pre
-# 脚本作者：ie.1w3n
-# 更新时间：2025-08-31
-# =========================================
+#!name=Locket_Xwuan
+#!desc=Crack By ie.1w3n
 
 [MITM]
 hostname = spclient.wg.spotify.com, *spclient.spotify.com
