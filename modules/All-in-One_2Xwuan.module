@@ -15,6 +15,8 @@ spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.co
 spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,script-path=https://raw.githubusercontent.com/Xwuan19/Premium/refs/heads/main/js/Spotify/spotify-json.js,requires-body=0,timeout=10
 spotify-header = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$,script-path=https://raw.githubusercontent.com/Xwuan19/Premium/refs/heads/main/js/Spotify/spotify-qx-header.js,requires-body=0,timeout=10
 
-[MITM]
-hostname = api.revenuecat.com, raw.githubusercontent.com, spclient.wg.spotify.com, *spclient.spotify.com
+# --- OldRoll Lifetime VIP ---
+OldRoll=type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$,requires-body=1,script-path=https://raw.githubusercontent.com/Xwuan19/Premium/refs/heads/main/js/OldRoll/LifetimeVIP.js
 
+[MITM]
+hostname = api.revenuecat.com, raw.githubusercontent.com, spclient.wg.spotify.com, *spclient.spotify.com, %APPEND% buy.itunes.apple.com
