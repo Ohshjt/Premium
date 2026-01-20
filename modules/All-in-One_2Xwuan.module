@@ -1,5 +1,5 @@
 #!name=All-in-One2_Xwuan
-#!desc=Spotify Pre, Locket Gold By ie.1w3n
+#!desc=ThienNguyen
 
 [General]
 user-agent = Locket/1.0.0 (iPhone; iOS 26; Scale/3.00)
@@ -20,4 +20,5 @@ OldRoll=type=http-response,pattern=^https?:\/\/buy\.itunes\.apple\.com\/verifyRe
 
 [MITM]
 hostname = api.revenuecat.com, raw.githubusercontent.com, spclient.wg.spotify.com, *spclient.spotify.com, %APPEND% buy.itunes.apple.com
+
 
